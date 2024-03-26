@@ -1,10 +1,19 @@
-// Focus input on button click
+import { useRef } from "react";
 
+// Focus input on button click
 export const Focus = () => {
+  const inputRef = useRef(null);
+
   return (
     <>
-      <input type="text" />
-      <button>Focus the input</button>
+      <input ref={inputRef} type="text" />
+      <button
+        onClick={() => {
+          inputRef.current.focus();
+        }}
+      >
+        Focus the input
+      </button>
     </>
   );
 };
